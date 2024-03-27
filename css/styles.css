@@ -11514,6 +11514,6 @@ textarea.form-control-lg {
 }
 
 #main-body{
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
