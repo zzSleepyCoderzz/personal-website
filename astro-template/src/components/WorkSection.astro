@@ -1,0 +1,44 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    title: "E-commerce Platform",
+    description: "A full-featured e-commerce platform with product catalog, shopping cart, and secure payment processing.",
+    imageSrc: "/api/placeholder/400/240",
+    imageAlt: "E-commerce Platform",
+    tags: ["React", "Node.js", "MongoDB", "GraphQL"]
+  },
+  {
+    title: "Task Management App",
+    description: "Collaborative task management application with real-time updates, task assignment, and progress tracking.",
+    imageSrc: "/api/placeholder/400/240",
+    imageAlt: "Task Management App",
+    tags: ["Vue.js", "Firebase", "Tailwind CSS"]
+  },
+  {
+    title: "Data Visualization Dashboard",
+    description: "Interactive dashboard for visualizing complex datasets with customizable charts and filtering options.",
+    imageSrc: "/api/placeholder/400/240",
+    imageAlt: "Data Visualization Dashboard",
+    tags: ["TypeScript", "D3.js", "Express"]
+  }
+];
+---
+
+<section id="work">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">My Work</h2>
+    <div class="work-cards stagger-animation">
+      {projects.map(project => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          imageSrc={project.imageSrc}
+          imageAlt={project.imageAlt}
+          tags={project.tags}
+        />
+      ))}
+    </div>
+  </div>
+</section>
