@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import profileImage from "../assets/img/profile-pic.png";
+---
+
+<section id="home">
+    <div class="container">
+        <div class="hero-content animate-on-scroll">
+            <div class="hero-text">
+                <h1>TIMOTHY CHIN</h1>
+                <h2>Software Engineer / Blockchain Enthusiast</h2>
+                <p>
+                    Passionate software engineer with expertise in Flutter and
+                    Web Development. Committed to producing Clean Code, as I
+                    have seen firsthand the negative side-effects of spaghetti
+                    code.
+                    <br />
+                    <br />
+                    Also dabbling in Blockchain and Web3 technologies, with a keen
+                    interest in the potential of tokenization and smart contracts.
+                </p>
+            </div>
+            <div class="profile-image">
+                <Image src={profileImage} alt="Profile" />
+            </div>
+        </div>
+    </div>
+</section>
