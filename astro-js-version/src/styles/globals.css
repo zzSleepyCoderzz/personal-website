@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Progress Indicator */
 .scroll-progress-container {
     position: fixed;
@@ -19,10 +21,11 @@
 /* Global Styles */
 :root {
     --primary-color: #D4AF37;
-    --secondary-color: #2c3e50;
+    --secondary-color: #ffffff;
     --text-color: #000000;
-    --light-bg: #f9fafb;
-    --dark-bg: #1e293b;
+    --light-bg: #1d2d44;
+    --dark-bg: #0d1321;
+    --hero-bg: #000000;
     --card-bg: #ffffff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --animation-duration: 0.7s;
@@ -106,7 +109,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--hero-bg);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
     z-index: 1000;
@@ -189,7 +192,7 @@ nav {
 #home {
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, #f9fafb, #eef2ff);
+    background: var(--hero-bg);
 }
 
 .hero-content {
@@ -203,7 +206,7 @@ nav {
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
     color: var(--secondary-color);
@@ -367,7 +370,7 @@ nav {
 
 /* Contact Section */
 #contact {
-    background-color: var(--secondary-color);
+    background-color: var(--dark-bg);
     color: white;
 }
 
