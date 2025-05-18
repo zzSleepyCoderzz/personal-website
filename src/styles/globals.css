@@ -270,61 +270,81 @@ nav {
 
 /* Work Section */
 #work {
+    padding: 2rem 0 6rem 0;
     background-color: var(--light-bg);
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
 .section-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 3rem;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--secondary-color, #4a5568);
 }
 
 .work-cards {
     cursor: pointer;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 4rem;
+}
+
+.card-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-height: 430px;
 }
 
 .card {
-    background-color: white;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    background-color: var(--card-bg, white);
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition:
-        transform 0.3s ease-out,
-        box-shadow 0.3s ease-out,
-        opacity 0.2s ease;
-    backface-visibility: hidden;
-    position: relative;
+    cursor: pointer;
 }
 
-/* Hover effects */
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.08),
-        0 0 20px rgba(66, 153, 225, 0.15);
+/* For desktop: hover to flip */
+@media (min-width: 768px) {
+    .card-container:hover .card {
+        transform: rotateY(180deg);
+    }
 }
 
-/* Glow effect on hover */
-.card::after {
-    content: '';
+/* For mobile: add a click event listener with JavaScript */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     border-radius: 12px;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0);
-    transition: box-shadow 0.4s ease;
-    pointer-events: none;
+    overflow: hidden;
 }
 
-.card:hover::after {
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, #2d3748, #1a202c);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .card-image {
@@ -336,11 +356,6 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover .card-image img {
-    transform: scale(1.05);
 }
 
 .card-content {
@@ -348,15 +363,9 @@ nav {
 }
 
 .card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: #4a5568;
-    transition: color 0.3s ease;
-}
-
-.card:hover .card-title {
-    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
 }
 
 .card-description {
@@ -377,15 +386,42 @@ nav {
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     background-color: #eff6ff;
-    color: var(--primary-color);
+    color: var(--primary-color, #3182ce);
     font-weight: 500;
-    transition: all 0.3s ease;
 }
 
-.card:hover .tag {
-    background-color: #e6f0fd;
-    transform: translateY(-2px);
+.github-icon {
+    margin-bottom: 1.5rem;
 }
+
+.github-link {
+    padding: 0.75rem 1.5rem;
+    background-color: #4a5568;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+    background-color: #718096;
+}
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* Contact Section */
 #contact {
@@ -509,6 +545,10 @@ footer {
 
     .mobile-menu-btn {
         display: block;
+    }
+
+    .card-container {
+        min-height: 450px;
     }
 
     #contact {

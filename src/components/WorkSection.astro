@@ -1,44 +1,93 @@
 ---
-import ProjectCard from './ProjectCard.astro';
+import ProjectCard from "./ProjectCard.astro";
 
 const projects = [
   {
     title: "TUNE UP",
-    description: "A mobile application for managing car maintenance, service history, and reminders. Created for my Diploma end-of-year project.",
-    imageSrc: "/api/placeholder/400/240",
+    description:
+      "A mobile application for managing car maintenance, service history, and reminders. Created for my Diploma end-of-year project.",
+    imageSrc: "../../public/project-card-img/tuneup.png",
     imageAlt: "Car Management App",
-    tags: ["Flutter", "Firebase"]
+    tags: ["Flutter", "Firebase"],
+    githubUrl: "https://github.com/zzSleepyCoderzz/Car-Management",
   },
   {
     title: "GAS FI",
-    description: "A mobile application that tracks gas fees for Ethereum transactions, providing real-time updates and alerts. Published on the Google Play Store.",
+    description:
+      "A mobile application that tracks gas fees for Ethereum transactions, providing real-time updates and alerts. Published on the Google Play Store.",
     imageSrc: "/api/placeholder/400/240",
     imageAlt: "Gas Fee Tracking App",
-    tags: ["Flutter", "Firebase"]
+    tags: ["Flutter", "Firebase"],
+    githubUrl: "https://github.com/0xV4L3NT1N3/gas-fi",
   },
   {
     title: "G-SYSTEM",
-    description: "Worked on refactoring G-SYSTEM, an internal tool for managing and tracking customer orders for an AI Hardware Company.",
+    description:
+      "Worked on refactoring G-SYSTEM, an internal tool for managing and tracking customer orders for an AI Hardware Company.",
     imageSrc: "/api/placeholder/400/240",
     imageAlt: "G-SYSTEM",
-    tags: ["CakePHP", "HTML", "CSS", "JavaScript"]
-  }
+    tags: ["CakePHP", "HTML", "CSS", "JavaScript"],
+  },
 ];
 ---
 
 <section id="work">
   <div class="container">
     <h2 class="section-title animate-on-scroll">My Work</h2>
-    <div class="work-cards stagger-animation">
-      {projects.map(project => (
-        <ProjectCard
-          title={project.title}
-          description={project.description}
-          imageSrc={project.imageSrc}
-          imageAlt={project.imageAlt}
-          tags={project.tags}
-        />
-      ))}
+    <div class="work-cards animate-on-scroll">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            imageSrc={project.imageSrc}
+            imageAlt={project.imageAlt}
+            tags={project.tags}
+            githubUrl={project.githubUrl}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
+
+<script>
+  // Intersection Observer for scroll animations
+  document.addEventListener("DOMContentLoaded", () => {
+    // Setup scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // If it's the cards container, stagger the animation of cards
+            if (entry.target.classList.contains("work-cards")) {
+              const cards = entry.target.querySelectorAll(".card-container");
+              cards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, 100 * index);
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    // Apply initial styles to cards for staggered animation
+    const cardContainers = document.querySelectorAll(".card-container");
+    cardContainers.forEach((card) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(30px)";
+      card.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    });
+
+    // Observe animated elements
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+  });
+</script>
