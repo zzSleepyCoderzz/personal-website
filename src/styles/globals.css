@@ -52,7 +52,6 @@ body {
 
 section {
     min-height: 100vh;
-    padding: 2rem 2rem 6rem 2rem;
     scroll-margin-top: 80px;
     position: relative;
 }
@@ -500,12 +499,20 @@ footer {
 }
 
 /* Mobile Responsiveness */
+@media (max-width: 375px) {
+    .card-container {
+        margin-bottom: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
+    section {
+        padding: 2rem 1.5rem 6rem 1.5rem;
+    }
+
     .hero-content {
         display: flex;
         align-items: center;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
         padding-top: 6rem;
         flex-direction: column-reverse;
         text-align: center;
@@ -513,12 +520,16 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         line-height: 1.3;
     }
 
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
     .hero-text p {
-        text-align: justify;
+        text-align: left;
     }
 
     .profile-image {
@@ -555,10 +566,6 @@ footer {
 
     .mobile-menu-btn {
         display: block;
-    }
-
-    .card-container {
-        min-height: 450px;
     }
 
     #contact {
