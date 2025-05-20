@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollProgressBar from "../components/ScrollProgressBar.astro";
+import TextLoader from "../components/TextLoader.astro";
 import "../styles/globals.css";
 
 interface Props {
@@ -17,25 +18,58 @@ const { title } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
-        <link rel="icon" href="/Personal-Website/favicon.png" type="image/x-icon" />
+        <link
+            rel="icon"
+            href="/Personal-Website/favicon.png"
+            type="image/x-icon"
+        />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
-        <link href="https://api.fontshare.com/v2/css?f[]=hind@500&f[]=khand@700,1&display=swap" rel="stylesheet">
-        <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500&display=swap" rel="stylesheet">
+        <link
+            href="https://api.fontshare.com/v2/css?f[]=hind@500&f[]=khand@700,1&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            /* Hide initial content */
+            .content-container {
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+            }
+
+            .content-container.visible {
+                opacity: 1;
+            }
+        </style>
     </head>
     <body>
-        <Header />
-        <ScrollProgressBar />
+        <!-- Loading animation component -->
+        <TextLoader />
 
-        <slot />
+        <!-- Main content (initially hidden) -->
+        <div class="content-container" id="contentContainer">
+            <Header />
+            <ScrollProgressBar />
 
-        <Footer />
+            <slot />
+
+            <Footer />
+        </div>
 
         <script>
+            // Initialize scroll animations after loader is complete
+            document.addEventListener("loaderComplete", function () {
+                initScrollAnimations();
+            });
+
             // Scroll Animation for Content
-            document.addEventListener("DOMContentLoaded", () => {
+            function initScrollAnimations() {
                 const animateElements =
                     document.querySelectorAll(".animate-on-scroll");
                 const staggerAnimations =
@@ -86,7 +120,7 @@ const { title } = Astro.props;
                         const sectionTop = section.offsetTop;
                         const sectionHeight = section.clientHeight;
                         const headerHeight =
-                            document.querySelector("header").offsetHeight;
+                            document.querySelector("header")?.offsetHeight || 0;
 
                         if (
                             window.pageYOffset >=
@@ -105,7 +139,7 @@ const { title } = Astro.props;
                         }
                     });
                 }
-            });
+            }
         </script>
     </body>
 </html>
