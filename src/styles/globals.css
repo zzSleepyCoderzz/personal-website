@@ -22,7 +22,7 @@
 :root {
     --primary-color: #D4AF37;
     --secondary-color: #ffffff;
-    --text-color: #000000;
+    --text-color: #151922;
     --light-bg: #1d2d44;
     --dark-bg: #0d1321;
     --hero-bg: #000000;
@@ -319,6 +319,12 @@ nav {
     .card-container:hover .card {
         transform: rotateY(180deg);
     }
+}
+
+.card:not(.flippable):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15),
+        0 0 15px rgba(66, 153, 225, 0.5);
 }
 
 /* For mobile: add a click event listener with JavaScript */
