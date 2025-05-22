@@ -52,11 +52,13 @@
  @media (max-width: 768px) {
      .intro-text {
          font-size: 4rem;
+         margin-bottom: 5rem;
      }
  }
 
  @media (max-width: 480px) {
      .intro-text {
          font-size: 3rem;
+         margin-bottom: 5rem;
      }
  }
