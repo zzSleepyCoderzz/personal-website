@@ -1,3 +1,12 @@
+/*--------------------------------------------------------------
+Responsive Media Query
+375px - Smaller Mobile
+480px - Mobile
+768px - Tablet (Usually we apply mobile adjustments here)
+1024px - Small Desktop
+1440px - Large Desktop
+--------------------------------------------------------------*/
+
 @import "tailwindcss";
 
 /* Progress Indicator */
