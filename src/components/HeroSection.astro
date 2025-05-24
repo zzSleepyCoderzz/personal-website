@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import profileImage from "../assets/img/profile-pic.png";
+import { TextHoverEffectComponent } from "@/components/react/text-hover-effect-component";
+import { FlipWordsComponent } from "@/components/react/flip-words-component";
 ---
 
 <section id="home">
@@ -8,7 +10,7 @@ import profileImage from "../assets/img/profile-pic.png";
         <div class="hero-content animate-on-scroll">
             <div class="hero-text">
                 <h1>TIMOTHY CHIN</h1>
-                <h2>Software Engineer / Blockchain Enthusiast / AI Researcher</h2>
+                <h2><FlipWordsComponent/ client:load></h2>
                 <p>
                     Passionate software engineer with expertise in Flutter and
                     Web Development. Committed to producing Clean Code, as I
