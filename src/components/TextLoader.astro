@@ -1,5 +1,5 @@
 ---
-import "../styles/textLoader.css";
+import "@/styles/textLoader.css";
 ---
 
 <div class="loading-container" id="loadingContainer">
@@ -18,9 +18,9 @@ import "../styles/textLoader.css";
 
             if (contentContainer) {
                 contentContainer.classList.add("visible");
-                
+
                 document.dispatchEvent(new CustomEvent("loaderComplete"));
             }
-        }, 0);
+        }, 2500);
     });
 </script>

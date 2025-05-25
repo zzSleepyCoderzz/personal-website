@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   title: string;
   description: string;
-  imageSrc: string;
+  imageSrc: ImageMetadata;
   imageAlt: string;
   tags: string[];
   githubUrl?: string;
@@ -18,7 +20,7 @@ const isFlippable = !!githubUrl;
   <div class={`card ${isFlippable ? "flippable" : ""}`}>
     <div class="card-front">
       <div class="card-image">
-        <img src={imageSrc} alt={imageAlt} />
+        <Image src={imageSrc} alt={imageAlt} />
       </div>
       <div class="card-content">
         <h3 class="card-title">{title}</h3>

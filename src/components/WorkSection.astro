@@ -1,12 +1,18 @@
 ---
-import ProjectCard from "./ProjectCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import tuneupImg from '@/assets/project-card-img/tuneup.webp';
+import gasfiImg from '@/assets/project-card-img/gasfi_50.webp';
+import gSystemImg from '@/assets/project-card-img/g-system.webp';
+import rapidklImg from '@/assets/project-card-img/rapidkl_50.webp';
+import herospaceImg from '@/assets/project-card-img/herospace.webp';
+import pitstopImg from '@/assets/project-card-img/pitstop.webp';
 
 const projects = [
   {
     title: "TUNE UP",
     description:
       "A mobile application for managing car maintenance, service history, and reminders. Created for my Diploma end-of-year project.",
-    imageSrc: "/Personal-Website/project-card-img/tuneup.webp",
+    imageSrc: tuneupImg,
     imageAlt: "Car Management App",
     tags: ["Flutter", "Firebase"],
     githubUrl: "https://github.com/zzSleepyCoderzz/Car-Management",
@@ -15,7 +21,7 @@ const projects = [
     title: "GAS FI",
     description:
       "A mobile application that tracks gas fees for Ethereum transactions, providing real-time updates and alerts. Published on the Google Play Store.",
-    imageSrc: "/Personal-Website/project-card-img/gasfi_50.webp",
+    imageSrc: gasfiImg,
     imageAlt: "Gas Fee Tracking App",
     tags: ["Flutter", "Firebase"],
     githubUrl: "https://github.com/0xV4L3NT1N3/gas-fi",
@@ -24,7 +30,7 @@ const projects = [
     title: "G-SYSTEM",
     description:
       "Worked on refactoring G-SYSTEM, an internal tool for managing and tracking customer orders for an AI Hardware Company.",
-    imageSrc: "/Personal-Website/project-card-img/g-system.webp",
+    imageSrc: gSystemImg,
     imageAlt: "G-SYSTEM",
     tags: ["CakePHP", "HTML", "CSS", "JavaScript"],
   },
@@ -32,7 +38,7 @@ const projects = [
     title: "RapidKL Ticketing",
     description:
       "Worked on a Flutter Application which was intended for RapidKL. The app allows users to purchase tickets, check train schedules as well as check the latest news.",
-    imageSrc: "/Personal-Website/project-card-img/rapidkl_50.webp",
+    imageSrc: rapidklImg,
     imageAlt: "RapidKL Ticketing",
     tags: ["Flutter", "Firebase"],
   },
@@ -40,7 +46,7 @@ const projects = [
     title: "HeroSpace",
     description:
       "A web application built with vanilla HTML, CSS, Javascript and PHP for one of my Diploma courses. This website allows users to participate in Charity Events.",
-    imageSrc: "/Personal-Website/project-card-img/herospace.webp",
+    imageSrc: herospaceImg,
     imageAlt: "HeroSpace",
     tags: ["HTML", "CSS", "JavaScript", "PHP"],
     githubUrl: "https://github.com/huveewomg/Herospace_WebDev",
@@ -49,7 +55,7 @@ const projects = [
     title: "PD Pitstop Website",
     description:
       "A website built for an activity hub called <a href='https://pitstop-pd.com' target='_blank' style='font-weight: bold; text-decoration: underline;' rel='noopener noreferrer'> PD Pitstop</a>. This allows potential customers to book activities and view the latest attractions.",
-    imageSrc: "/Personal-Website/project-card-img/pitstop.webp",
+    imageSrc: pitstopImg,
     imageAlt: "PD Pitstop",
     tags: ["Bootstrap", "HTML", "CSS"],
   },
