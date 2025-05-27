@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import profileImage from "@/assets/img/profile-pic.png";
 import { FlipWordsComponent } from "@/components/react/flip-words-component";
+import { BackgroundGradientDemo } from "@/components/react/background-gradient-component";
 ---
 
 <section id="home">
@@ -9,20 +10,23 @@ import { FlipWordsComponent } from "@/components/react/flip-words-component";
         <div class="hero-content animate-on-scroll">
             <div class="hero-text">
                 <h1>TIMOTHY CHIN</h1>
-                <h2><FlipWordsComponent/ client:load></h2>
-                <p>
-                    Passionate software engineer with expertise in Flutter and
-                    Web Development. Committed to producing Clean Code, as I
-                    have seen firsthand the negative side-effects of spaghetti
-                    code.
-                    <br />
-                    <br />
-                    Also dabbling in Blockchain and Web3 technologies, with a keen
-                    interest in the potential of tokenization and smart contracts.
-                </p>
+                <h2>
+                    <FlipWordsComponent client:load />
+                    <p>
+                        Passionate software engineer with expertise in Flutter
+                        and Web Development. Committed to producing Clean Code,
+                        as I have seen firsthand the negative side-effects of
+                        spaghetti code.
+                        <br />
+                        <br />
+                        Also dabbling in Blockchain and Web3 technologies, with a
+                        keen interest in the potential of tokenization and smart
+                        contracts.
+                    </p>
+                </h2>
             </div>
             <div class="profile-image">
-                <Image src={profileImage} alt="Profile" />
+                <BackgroundGradientDemo client:load />
             </div>
         </div>
     </div>

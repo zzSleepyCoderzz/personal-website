@@ -48,8 +48,6 @@ Responsive Media Query
 }
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: var(--body-font);
 }
@@ -219,6 +217,10 @@ nav {
     flex: 1;
 }
 
+.profile-image {
+    flex: 0 0 auto;
+}
+
 .hero-text h1 {
     font-family: var(--heading-font);
     font-size: 5rem;
@@ -258,20 +260,6 @@ nav {
     margin-bottom: 2rem;
     max-width: 550px;
     color: #ffffff;
-}
-
-.profile-image {
-    flex: 0 0 300px;
-    overflow: hidden;
-    border-radius: 50%;
-    box-shadow: var(--shadow);
-}
-
-.profile-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
 }
 
 /* Work Section */
