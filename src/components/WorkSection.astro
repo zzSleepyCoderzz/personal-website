@@ -1,0 +1,124 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import tuneupImg from '@/assets/project-card-img/tuneup.webp';
+import gasfiImg from '@/assets/project-card-img/gasfi_50.webp';
+import gSystemImg from '@/assets/project-card-img/g-system.webp';
+import rapidklImg from '@/assets/project-card-img/rapidkl_50.webp';
+import herospaceImg from '@/assets/project-card-img/herospace.webp';
+import pitstopImg from '@/assets/project-card-img/pitstop.webp';
+
+const projects = [
+  {
+    title: "TUNE UP",
+    description:
+      "A mobile application for managing car maintenance, service history, and reminders. Created for my Diploma end-of-year project.",
+    imageSrc: tuneupImg,
+    imageAlt: "Car Management App",
+    tags: ["Flutter", "Firebase"],
+    githubUrl: "https://github.com/zzSleepyCoderzz/Car-Management",
+  },
+  {
+    title: "GAS FI",
+    description:
+      "A mobile application that tracks gas fees for Ethereum transactions, providing real-time updates and alerts. Published on the Google Play Store.",
+    imageSrc: gasfiImg,
+    imageAlt: "Gas Fee Tracking App",
+    tags: ["Flutter", "Firebase"],
+    githubUrl: "https://github.com/0xV4L3NT1N3/gas-fi",
+  },
+  {
+    title: "G-SYSTEM",
+    description:
+      "Worked on refactoring G-SYSTEM, an internal tool for managing and tracking customer orders for an AI Hardware Company.",
+    imageSrc: gSystemImg,
+    imageAlt: "G-SYSTEM",
+    tags: ["CakePHP", "HTML", "CSS", "JavaScript"],
+  },
+  {
+    title: "RapidKL Ticketing",
+    description:
+      "Worked on a Flutter Application which was intended for RapidKL. The app allows users to purchase tickets, check train schedules as well as check the latest news.",
+    imageSrc: rapidklImg,
+    imageAlt: "RapidKL Ticketing",
+    tags: ["Flutter", "Firebase"],
+  },
+  {
+    title: "HeroSpace",
+    description:
+      "A web application built with vanilla HTML, CSS, Javascript and PHP for one of my Diploma courses. This website allows users to participate in Charity Events.",
+    imageSrc: herospaceImg,
+    imageAlt: "HeroSpace",
+    tags: ["HTML", "CSS", "JavaScript", "PHP"],
+    githubUrl: "https://github.com/huveewomg/Herospace_WebDev",
+  },
+  {
+    title: "PD Pitstop Website",
+    description:
+      "A website built for an activity hub called <a href='https://pitstop-pd.com' target='_blank' style='font-weight: bold; text-decoration: underline;' rel='noopener noreferrer'> PD Pitstop</a>. This allows potential customers to book activities and view the latest attractions.",
+    imageSrc: pitstopImg,
+    imageAlt: "PD Pitstop",
+    tags: ["Bootstrap", "HTML", "CSS"],
+  },
+];
+---
+
+<section id="work">
+  <div class="container">
+    <h2 class="section-title animate-on-scroll">My Work</h2>
+    <div class="work-cards animate-on-scroll">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            imageSrc={project.imageSrc}
+            imageAlt={project.imageAlt}
+            tags={project.tags}
+            githubUrl={project.githubUrl}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for scroll animations
+  document.addEventListener("DOMContentLoaded", () => {
+    // Setup scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // If it's the cards container, stagger the animation of cards
+            if (entry.target.classList.contains("work-cards")) {
+              const cards = entry.target.querySelectorAll(".card-container");
+              cards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, 100 * index);
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    // Apply initial styles to cards for staggered animation
+    const cardContainers = document.querySelectorAll(".card-container");
+    cardContainers.forEach((card) => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(30px)";
+      card.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    });
+
+    // Observe animated elements
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+  });
+</script>

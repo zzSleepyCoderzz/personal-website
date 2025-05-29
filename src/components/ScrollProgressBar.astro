@@ -1,0 +1,22 @@
+<div class="scroll-progress-container">
+    <div id="scrollProgress" class="scroll-progress-bar"></div>
+</div>
+
+<script>
+    // Update scroll progress bar
+    const scrollProgressBar = document.getElementById("scrollProgress");
+
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const scrollHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (scrollTop / scrollHeight) * 100;
+        scrollProgressBar.style.width = scrollPercentage + "%";
+    }
+
+    // Update scroll progress on scroll
+    window.addEventListener("scroll", updateScrollProgress);
+
+    // Initial update of scroll progress
+    updateScrollProgress();
+</script>
