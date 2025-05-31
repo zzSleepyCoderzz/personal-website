@@ -1,0 +1,64 @@
+/* Animation Classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity var(--animation-duration) ease,
+        transform var(--animation-duration) ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-animation>* {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.stagger-animation.animated>*:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.stagger-animation.animated>*:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.stagger-animation.animated>*:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.stagger-animation.animated>*:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.stagger-animation.animated>*:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.stagger-animation.animated>* {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll.animated .hero-text h1::after {
+    width: 100%;
+}
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
