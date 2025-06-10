@@ -146,6 +146,7 @@ section {
     height: 100%;
     width: 100%;
     min-height: 440px;
+    margin-bottom: 3rem;
 }
 
 .card {
@@ -230,8 +231,8 @@ section {
 }
 
 .tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+    padding: 0.1rem 0.75rem;
     border-radius: 20px;
     background-color: #eff6ff;
     color: var(--primary-color, #3182ce);
@@ -314,13 +315,13 @@ section {
     font-size: 1rem;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 375px) {
     .card-container {
-        margin-bottom: 2rem;
+        min-height: 460px;
     }
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     section {
         padding: 2rem 1.5rem 6rem 1.5rem;
@@ -391,5 +392,13 @@ section {
     .contact-links {
         flex-wrap: wrap;
         gap: 1.5rem;
+    }
+
+    .card-container {
+        margin-bottom: 2rem;
+    }
+
+    .tag {
+        font-size: 1.1rem;
     }
 }
