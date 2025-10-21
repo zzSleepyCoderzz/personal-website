@@ -51,7 +51,7 @@ An updated guide as of (29/5/2025) on how to set up an Astro JS project and plug
    ```
    export default defineConfig({
    site: 'https://zzsleepycoderzz.github.io',
-   base: 'personal-website',
+   base: 'Personal-Website',
    output: 'static',
    // Other config here
    });
