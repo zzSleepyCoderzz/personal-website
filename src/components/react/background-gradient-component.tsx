@@ -7,7 +7,7 @@ export function BackgroundGradientDemo() {
         <div>
             <BackgroundGradient className="rounded-[22px] max-w-sm bg-zinc-900">
                 <img
-                    src={'/Personal-Website/Picture_Timothy-Chin.jpeg'}
+                    src={'/personal-website/Picture_Timothy-Chin.jpeg'}
                     alt="Profile Picture of Timothy Chin"
                     height="350"
                     width="350"
