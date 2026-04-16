@@ -3,24 +3,26 @@ import "@/styles/textLoader.css";
 ---
 
 <div class="loading-container" id="loadingContainer">
+  <div class="intro-text-wrapper">
     <div class="intro-text">Introducing . . .</div>
+  </div>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const loadingContainer = document.getElementById("loadingContainer");
-        const contentContainer = document.getElementById("js-content-container");
+  document.addEventListener("DOMContentLoaded", function () {
+    const loadingContainer = document.getElementById("loadingContainer");
+    const contentContainer = document.getElementById("js-content-container");
 
-        setTimeout(function () {
-            if (loadingContainer) {
-                loadingContainer.style.display = "none";
-            }
+    setTimeout(function () {
+      if (loadingContainer) {
+        loadingContainer.style.display = "none";
+      }
 
-            if (contentContainer) {
-                contentContainer.classList.add("visible");
+      if (contentContainer) {
+        contentContainer.classList.add("visible");
 
-                document.dispatchEvent(new CustomEvent("loaderComplete"));
-            }
-        }, 2500);
-    });
+        document.dispatchEvent(new CustomEvent("loaderComplete"));
+      }
+    }, 2500);
+  });
 </script>
