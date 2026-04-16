@@ -8,15 +8,16 @@ interface Props {
   imageAlt: string;
   tags: string[];
   githubUrl?: string;
+  liveUrl?: string;
 }
 
-const { title, description, imageSrc, imageAlt, tags, githubUrl } = Astro.props;
+const { title, description, imageSrc, imageAlt, tags, githubUrl, liveUrl } = Astro.props;
 
 // Check if Github URL is provided
 const isFlippable = !!githubUrl;
 ---
 
-<div class="card-container">
+<div class={`card-container${liveUrl ? " clickable-card" : ""}`} data-href={liveUrl}>
   <div class={`card ${isFlippable ? "flippable" : ""}`}>
     <div class="card-front">
       <div class="card-image">
@@ -64,6 +65,18 @@ const isFlippable = !!githubUrl;
           card.classList.toggle("flipped");
         }
       });
+    });
+
+    // Clickable card containers (e.g. liveUrl cards)
+    const clickableContainers = document.querySelectorAll<HTMLElement>(".card-container.clickable-card");
+
+    clickableContainers.forEach((container) => {
+      const href = container.dataset.href;
+      if (href) {
+        container.addEventListener("click", () => {
+          window.open(href, "_blank", "noopener,noreferrer");
+        });
+      }
     });
   });
 </script>

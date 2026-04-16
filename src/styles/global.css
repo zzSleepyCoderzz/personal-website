@@ -149,6 +149,10 @@ section {
     margin-bottom: 3rem;
 }
 
+.card-container.clickable-card {
+    cursor: pointer;
+}
+
 .card {
     position: relative;
     width: 100%;

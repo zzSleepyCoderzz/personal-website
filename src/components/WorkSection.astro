@@ -1,11 +1,12 @@
 ---
 import ProjectCard from "@/components/ProjectCard.astro";
-import tuneupImg from '@/assets/project-card-img/tuneup.webp';
-import gasfiImg from '@/assets/project-card-img/gasfi_50.webp';
-import gSystemImg from '@/assets/project-card-img/g-system.webp';
-import rapidklImg from '@/assets/project-card-img/rapidkl_50.webp';
-import herospaceImg from '@/assets/project-card-img/herospace.webp';
-import pitstopImg from '@/assets/project-card-img/pitstop.webp';
+import tuneupImg from "@/assets/project-card-img/tuneup.webp";
+import gasfiImg from "@/assets/project-card-img/gasfi_50.webp";
+import gSystemImg from "@/assets/project-card-img/g-system.webp";
+import rapidklImg from "@/assets/project-card-img/rapidkl_50.webp";
+import herospaceImg from "@/assets/project-card-img/herospace.webp";
+import pitstopImg from "@/assets/project-card-img/pitstop.webp";
+import praLoopImg from "@/assets/project-card-img/pra_loop.webp";
 
 const projects = [
   {
@@ -58,6 +59,16 @@ const projects = [
     imageSrc: pitstopImg,
     imageAlt: "PD Pitstop",
     tags: ["Bootstrap", "HTML", "CSS"],
+    liveUrl: "https://pitstop-pd.com",
+  },
+  {
+    title: "Pra Loop",
+    description:
+      "A mobile app with the core purpose of aiding practice sessions by allowing for more in depth media control. Doubles as a file management system.",
+    imageSrc: praLoopImg,
+    imageAlt: "Pra Loop",
+    tags: ["Flutter", "Isar", "Drift", "Riverpod", "Freezed"],
+    liveUrl: "https://pra-loop.com/",
   },
 ];
 ---
@@ -75,6 +86,7 @@ const projects = [
             imageAlt={project.imageAlt}
             tags={project.tags}
             githubUrl={project.githubUrl}
+            liveUrl={project.liveUrl}
           />
         ))
       }
@@ -94,7 +106,8 @@ const projects = [
 
             // If it's the cards container, stagger the animation of cards
             if (entry.target.classList.contains("work-cards")) {
-              const cards = entry.target.querySelectorAll(".card-container");
+              const cards =
+                entry.target.querySelectorAll<HTMLElement>(".card-container");
               cards.forEach((card, index) => {
                 setTimeout(() => {
                   card.style.opacity = "1";
@@ -109,7 +122,8 @@ const projects = [
     );
 
     // Apply initial styles to cards for staggered animation
-    const cardContainers = document.querySelectorAll(".card-container");
+    const cardContainers =
+      document.querySelectorAll<HTMLElement>(".card-container");
     cardContainers.forEach((card) => {
       card.style.opacity = "0";
       card.style.transform = "translateY(30px)";
